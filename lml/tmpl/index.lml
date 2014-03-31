@@ -1,0 +1,19 @@
+<?lml
+    local alc = require('lib.alc')
+    tmpl:include('sugar')
+    include('header')
+?>
+Привет, <?lml print(esc(req:get('name', 'traveler')), '/', ngx.var.remote_addr) ?>.
+Это уже <?lml print(alc:inc('cnt')) ?> запрос с последнего перезапуска сервера.
+
+<?lml
+    local hdrs = {}
+    for k,v in pairs(ngx.req.get_headers()) do
+        table.insert(hdrs, '<tr><td style="font-weight:bold;">'..esc(k)..'</td><td>'..esc(v)..'</td></tr>')
+    end
+?>
+
+<h3>Заголовки <?lml print(ngx.req.get_method()) ?> запроса к <?lml print(esc(ngx.var.request_uri)) ?></h3>
+<table><?lml print(hdrs) ?></table>
+
+<?lml include('footer') ?>

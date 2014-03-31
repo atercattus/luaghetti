@@ -1,0 +1,13 @@
+<?lml
+function include(...)
+    tmpl:include(...)
+end
+
+function print(...)
+    stdout:print(...)
+end
+
+function esc(...)
+    return html:escape(...)
+end
+?>
