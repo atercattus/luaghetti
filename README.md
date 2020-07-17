@@ -3,6 +3,8 @@ luaghetti
 
 Spaghetti html+lua code templater inside nginx
 
+**It's just a fun experiment. There will be no support or development.**
+
 Example:
 ```html
 <?lml tmpl:include('sugar') ?>
